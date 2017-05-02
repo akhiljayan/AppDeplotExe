@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.0.49/ApplicationDeployToolsWCF/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.0.49/ApplicationDeployToolsWCF/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.0.49/ApplicationDeployToolsWCF/Service1.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetAllSites_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSites" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllSites_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllPools_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPools" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAllPools_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPoolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAppBySite_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppBySite" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAppBySite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppBySiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAppPool_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAppPool" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAppPool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAppPoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MoveChangeAppPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveChangeAppPath" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MoveChangeAppPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveChangeAppPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAppVirtualPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppVirtualPath" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAppVirtualPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppVirtualPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateNewPool_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPool" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateNewPool_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateAppVir_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAppVir" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CreateAppVir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAppVirResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetAllSites">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllSites" message="tns:IService1_GetAllSites_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllSitesResponse" message="tns:IService1_GetAllSites_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPools">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllPools" message="tns:IService1_GetAllPools_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllPoolsResponse" message="tns:IService1_GetAllPools_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppBySite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAppBySite" message="tns:IService1_GetAppBySite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAppBySiteResponse" message="tns:IService1_GetAppBySite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAppPool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAppPool" message="tns:IService1_SetAppPool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAppPoolResponse" message="tns:IService1_SetAppPool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveChangeAppPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MoveChangeAppPath" message="tns:IService1_MoveChangeAppPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MoveChangeAppPathResponse" message="tns:IService1_MoveChangeAppPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppVirtualPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAppVirtualPath" message="tns:IService1_GetAppVirtualPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAppVirtualPathResponse" message="tns:IService1_GetAppVirtualPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPool">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateNewPool" message="tns:IService1_CreateNewPool_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateNewPoolResponse" message="tns:IService1_CreateNewPool_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAppVir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CreateAppVir" message="tns:IService1_CreateAppVir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CreateAppVirResponse" message="tns:IService1_CreateAppVir_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpEndpoint" type="tns:IService1">
+    <wsp:PolicyReference URI="#BasicHttpEndpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllSites">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllSites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPools">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAllPools" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppBySite">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAppBySite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAppPool">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetAppPool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveChangeAppPath">
+      <soap:operation soapAction="http://tempuri.org/IService1/MoveChangeAppPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppVirtualPath">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAppVirtualPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPool">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateNewPool" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAppVir">
+      <soap:operation soapAction="http://tempuri.org/IService1/CreateAppVir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpEndpoint" binding="tns:BasicHttpEndpoint">
+      <soap:address location="http://192.168.0.49/ApplicationDeployToolsWCF/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
